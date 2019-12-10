@@ -26,14 +26,14 @@ def main():
 
 def put_block(table):
     for i, row in enumerate(reversed(table)):
-        for j, cell in enumerate(row):
-            mc.setBlock(10, i, j, cell)
+        for j, cell in enumerate(reversed(row)):
+            mc.setBlock(10, i, j+10, cell)
 
 
 def delete_block(table):
     for i, row in enumerate(reversed(table)):
         for j, cell in enumerate(row):
-            mc.setBlock(10, i, j, 0)
+            mc.setBlock(10, i, j+10, 0)
 
 
 
