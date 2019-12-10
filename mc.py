@@ -1,4 +1,4 @@
-import minecraft
+from mcpi import minecraft
 import csv
 from time import sleep
 
