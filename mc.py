@@ -38,7 +38,9 @@ def delete_block(table):
 
 def to_block_id(i):
     if i == 1:
-        return 14
+        return 49
+    elif i == 2:
+        return 41
     else:
         return i
 
