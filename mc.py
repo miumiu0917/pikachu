@@ -10,17 +10,17 @@ def main():
     mc.player.setTilePos(0, 0, 0)
     with open('data/0001.csv') as f:
         reader = csv.reader(f)
-        one = [list(map(int, row)) for row in reader]
+        one = [list(map(to_block_id, map(int, row))) for row in reader]
     with open('data/0002.csv') as f:
         reader = csv.reader(f)
-        two = [list(map(int, row)) for row in reader]
+        two = [list(map(to_block_id, map(int, row))) for row in reader]
     
     while True:
         put_block(one)
-        sleep(0.5)
+        # sleep(0.5)
         delete_block(one)
         put_block(two)
-        sleep(0.5)
+        # sleep(0.5)
         delete_block(one)
 
 
@@ -34,6 +34,13 @@ def delete_block(table):
     for i, row in enumerate(reversed(table)):
         for j, cell in enumerate(row):
             mc.setBlock(10, i, j+10, 0)
+
+
+def to_block_id(i):
+    if i == 1:
+        return 14
+    else:
+        return i
 
 
 
