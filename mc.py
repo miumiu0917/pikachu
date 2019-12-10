@@ -18,14 +18,23 @@ def main():
     while True:
         put_block(one)
         sleep(0.5)
+        delete_block(one)
         put_block(two)
         sleep(0.5)
+        delete_block(one)
 
 
 def put_block(table):
-    for i, row in enumerate(table):
+    for i, row in enumerate(reversed(table)):
         for j, cell in enumerate(row):
             mc.setBlock(0, i, j, cell)
+
+
+def delete_block(table):
+    for i, row in enumerate(reversed(table)):
+        for j, cell in enumerate(row):
+            mc.setBlock(0, i, j, 0)
+
 
 
 if __name__ == '__main__':
