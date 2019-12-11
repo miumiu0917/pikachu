@@ -19,10 +19,10 @@ def main():
     put_block(two, -128, 0)
     
     while True:    
-        sleep(2)
-        mc.player.setTilePos(-108, 1, 10)
-        sleep(2)
-        mc.player.setTilePos(-108, 1, -93)
+        sleep(1)
+        mc.player.setTilePos(-108, 0, 15)
+        sleep(1)
+        mc.player.setTilePos(-108, 0, -88)
 
 
 def put_block(table, x, y):
