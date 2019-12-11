@@ -42,6 +42,8 @@ def to_block_id(i):
         return 49
     elif i == 2:
         return 41
+    elif i == 0:
+        return 35
     else:
         return i
 
