@@ -7,27 +7,28 @@ mc = None
 def main():
     global mc
     mc = minecraft.Minecraft.create()
-    mc.player.setTilePos(0, 0, 0)
     with open('data/0001.csv') as f:
         reader = csv.reader(f)
         one = [list(map(to_block_id, map(int, row))) for row in reader]
     with open('data/0002.csv') as f:
         reader = csv.reader(f)
         two = [list(map(to_block_id, map(int, row))) for row in reader]
+
+    put_block(one, -128, -103)
     
-    while True:
-        put_block(one)
-        # sleep(0.5)
-        delete_block(one)
-        put_block(two)
-        # sleep(0.5)
-        delete_block(one)
+    put_block(two, -128, 0)
+    
+    while True:    
+        sleep(0.5)
+        mc.player.setTilePos(-118, 0, 0)
+        sleep(0.5)
+        mc.player.setTilePos(-118, 0, -103)
 
 
-def put_block(table):
+def put_block(table, x, y):
     for i, row in enumerate(reversed(table)):
         for j, cell in enumerate(reversed(row)):
-            mc.setBlock(10, i, j+10, cell)
+            mc.setBlock(x, i, y+j, cell)
 
 
 def delete_block(table):
